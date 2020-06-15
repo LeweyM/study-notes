@@ -1,5 +1,7 @@
 # Operating Systems: Three Easy Pieces
 
+#### [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/#projects)
+
 ### Chapter review notes
 
 * [Chapter 4 - Processes](./chapter-4-processes.md)
