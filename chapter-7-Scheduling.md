@@ -20,5 +20,47 @@ There is a sunk time in context-switching which could be non-trivial as data bet
 
 Optimizing CPU usage also means making use of process I/O time, in which the CPU is not being used. This time can be **overlapped** with other processes inorder to use the CPU dead-time.
 
+## Homework Answers
+
+HW
+1. Compute the response time and turnaround time when running three jobs of length 200 with the SJF and FIFO schedulers. 
+```	SJF:	
+		response time: 200
+		turnaround time: 400
+	FIFO:	
+		response time: 200
+		turnaround time: 400
+```
+2. Now do the same but with jobs of different lengths: 100, 200, and 300. 
+```	SJF:	
+		response time: 133
+		turnaround time: 333
+	FIFO:	
+		response time: 133
+		turnaround time: 333
+```
+3. Now do the same, but also with the RR scheduler and a time-slice of 1. 
+```	RR:	
+		response time: 1
+		turnaround time: 465
+```
+4. For what types of workloads does SJF deliver the same turnaround times as FIFO?
+```
+Jobs increasing in length.
+```
+5. For what types of workloads and quantum lengths does SJF deliver the same response times as RR? 
+```
+If the quantum length is the same as the longest job
+```
+6. What happens to response time with SJF as job lengths increase? Can you use the simulator to demonstrate the trend? 
+```
+The response time ignores the longest job. The response times accumulate until n-1 and then the average is the result of summing the accumulations and dividing by n.
+```
+7. What happens to response time with RR as quantum lengths increase? Can you write an equation that gives the worst-case response time, given N jobs?
+```
+quantum lengths map directly to response times.
+q(((n * (n + 1)) / 2 ) / n) 
+```
+
 
 [Back to index.](./README.md)
