@@ -12,3 +12,5 @@ X86 systems store the data (registers, program counter, etc.) necessary to `retu
 Sometimes it is necessary for the OS to retake control of the CPU, this could be to perform a context switch or to read I/O opperations. As a user process could be intentionally or accidentally unresponsive and never voluntarily give back control (such as in an infinte loop), the OS uses **timer interrupts** to intermittedly take back control.
 
 When changing between processes, process relevant data must be stored and later reset. This low level process is a **context switch.**
+
+[Back to index.](./index.md)

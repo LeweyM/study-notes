@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function file_ends_with_newline() {
+    [[ $(tail -c1 "$1" | wc -l) -gt 0 ]]
+}
+
 echo "Chapter Number"
 
 read chapter
@@ -21,4 +25,14 @@ done
 
 touch $STR.md
 echo "# "$PRETTY >> $STR.md
+echo "" >> $STR.md
+echo "{Type the chapter summary here}" >> $STR.md
+echo "" >> $STR.md
+echo "[Back to index.](./index.md)" >> $STR.md
+
+if ! file_ends_with_newline index.md
+then
+    echo "" >> index.md
+fi
+
 echo "* ["$PRETTY"](./"$STR".md)" >> index.md
