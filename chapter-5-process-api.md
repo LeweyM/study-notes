@@ -10,4 +10,4 @@ Can wait for a child process to terminate
 
 Exec can run other programs which coopts the current process (resources/ stack /etc)
 
-[Back to index.](./index.md)
+[Back to index.](README.md)

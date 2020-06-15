@@ -28,11 +28,11 @@ echo "# "$PRETTY >> $STR.md
 echo "" >> $STR.md
 echo "{Type the chapter summary here}" >> $STR.md
 echo "" >> $STR.md
-echo "[Back to index.](./index.md)" >> $STR.md
+echo "[Back to index.](./README.md)" >> $STR.md
 
-if ! file_ends_with_newline index.md
+if ! file_ends_with_newline README.md
 then
-    echo "" >> index.md
+    echo "" >> README.md
 fi
 
-echo "* ["$PRETTY"](./"$STR".md)" >> index.md
+echo "* ["$PRETTY"](./"$STR".md)" >> README.md

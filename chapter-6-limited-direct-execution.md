@@ -13,4 +13,4 @@ Sometimes it is necessary for the OS to retake control of the CPU, this could be
 
 When changing between processes, process relevant data must be stored and later reset. This low level process is a **context switch.**
 
-[Back to index.](./index.md)
+[Back to index.](README.md)
