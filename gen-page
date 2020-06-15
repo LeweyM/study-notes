@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Chapter Number"
+
+read chapter
+
+echo "Title"
+
+read title
+
+STR="chapter-"$chapter
+PRETTY="Chapter "$chapter" -"
+
+for one_thing in $title; do
+    STR+="-"
+    PRETTY+=" "
+    PRETTY_WORD="$(tr '[:lower:]' '[:upper:]' <<< ${one_thing:0:1})${one_thing:1}"
+    STR+=$one_thing
+    PRETTY+=$PRETTY_WORD
+done
+
+touch $STR.md
+echo "# "$PRETTY >> $STR.md
+echo "* ["$PRETTY"](./"$STR".md)" >> index.md
