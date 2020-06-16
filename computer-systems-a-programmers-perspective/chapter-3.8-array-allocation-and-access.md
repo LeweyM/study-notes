@@ -24,4 +24,58 @@ Example:
 	p[i*6-5]	# =>	movw -10(%rdx, %rcx, 12), %rax 
 ```
 
+The same principle applies for multidimensional arrays. The compiler will deduce the offset as follows: 
+```
+# X     = the starting pointer of the array
+# L     = the size of the data type
+# C     = the number of columns, the depth of the array
+# i, j  = indicies
+
+X + L * (C * i + j)
+```
+
+
+For fixed-size arrays, the compiler is able to do some clever optimizations by extracting the root pointer of the array and performing pointer arithmetic directly on the root pointer. 
+For example:
+
+```
+void fix_set_diag(fix_matrix A, int val) {
+	long i;
+	for (i =0; i < N; i++) {
+		A[i][i] = val;
+	}
+}
+```
+
+Could be optimized to
+
+```
+void fix_set_diag_opt(fix_matrix A, int val) {
+    int *Aroot = &A[0][0];
+    long i;
+    long end = N*(N+1);
+    do {
+        Aroot[i] = val;
+        i += N+1; 
+    } while (i != end)
+}
+```
+
+As the size is fixed, the compiler is able to make some assumptions about the step size from ```N``` and convert iterations into simpler expressions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [Back to index.](./README.md)
