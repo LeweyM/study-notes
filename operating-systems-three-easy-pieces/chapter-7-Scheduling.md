@@ -63,4 +63,4 @@ q(((n * (n + 1)) / 2 ) / n)
 ```
 
 
-[Back to index.](./README.md)
+[Back to index.](README.md)

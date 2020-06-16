@@ -4,35 +4,54 @@ function file_ends_with_newline() {
     [[ $(tail -c1 "$1" | wc -l) -gt 0 ]]
 }
 
-echo "Chapter Number"
+function generate_page() {
+  echo "Chapter Number"
 
-read chapter
+  read chapter
 
-echo "Title"
+  echo "Title"
 
-read title
+  read title
 
-STR="chapter-"$chapter
-PRETTY="Chapter "$chapter" -"
+  STR="chapter-"$chapter
+  PRETTY="Chapter "$chapter" -"
 
-for one_thing in $title; do
-    STR+="-"
-    PRETTY+=" "
-    PRETTY_WORD="$(tr '[:lower:]' '[:upper:]' <<< ${one_thing:0:1})${one_thing:1}"
-    STR+=$one_thing
-    PRETTY+=$PRETTY_WORD
-done
+  for one_thing in $title; do
+      STR+="-"
+      PRETTY+=" "
+      PRETTY_WORD="$(tr '[:lower:]' '[:upper:]' <<< ${one_thing:0:1})${one_thing:1}"
+      STR+=$one_thing
+      PRETTY+=$PRETTY_WORD
+  done
 
-touch $STR.md
-echo "# "$PRETTY >> $STR.md
-echo "" >> $STR.md
-echo "{Type the chapter summary here}" >> $STR.md
-echo "" >> $STR.md
-echo "[Back to index.](./README.md)" >> $STR.md
+  touch $STR.md
+  echo "# "$PRETTY >> $STR.md
+  echo "" >> $STR.md
+  echo "{Type the chapter summary here}" >> $STR.md
+  echo "" >> $STR.md
+  echo "[Back to index.](./README.md)" >> $STR.md
 
-if ! file_ends_with_newline README.md
-then
-    echo "" >> README.md
-fi
+  if ! file_ends_with_newline README.md
+  then
+      echo "" >> README.md
+  fi
 
-echo "* ["$PRETTY"](./"$STR".md)" >> README.md
+  echo "* ["$PRETTY"](./"$STR".md)" >> README.md
+}
+
+INSTANCE=""
+while [[ $INSTANCE = "" ]]; do
+    echo "Select Project:"
+    select INSTANCE in $(ls -d */); do
+         if [[ $INSTANCE = "" ]]; then
+              echo "Please enter a valid number. Retry."
+         else {
+              cd ./$INSTANCE
+              echo `ls`
+              generate_page
+              }
+          fi
+          break
+          done
+     done
+exit 0
