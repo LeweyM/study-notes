@@ -12,3 +12,4 @@
 * [Chapter 8 - Multi Level Feedback Queue](./chapter-8-multi-level-feedback-queue.md)
 
 * [Chapter 9 - Lottery Sheduling](./chapter-9-lottery-sheduling.md)
+* [Chapter 13 - Address Spaces](./chapter-13-address-spaces.md)
