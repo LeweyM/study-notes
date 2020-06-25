@@ -71,5 +71,14 @@ Hashes can be abused if an attacker knows the hash function - **pile-up** attack
 
 One way hashes such as **RSA** hashes are used for security and digital fingerprint technology, although are inefficient for symbol tables.
 
+## Some Applications of Symbol Tables
+
+### Indexing
+
+File indexing is a simple application of symbol tables. In order to quickly search for locations (page numbers) of items (words), we can enter the items into a symbol table for quick retreival.
+
+### Sparse Vectors
+
+When doing some vector calculations such as dot products, it is necessary to perform operations across whole rows or columns of vectors. This has a complexity proportional to N where N is the size of the vector. In many cases, the vectors are **sparse**, meaning that they are mainly zero values and could be ignored. By representing sparse vectors as a symbol table of only non-zero values, we can ignore zero values in our calculations and therefore have an algorithmic complexity equal only to the number of non-zero values.
 
 [Back to index.](./README.md)
