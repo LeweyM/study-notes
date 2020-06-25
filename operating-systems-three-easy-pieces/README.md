@@ -13,3 +13,4 @@
 
 * [Chapter 9 - Lottery Sheduling](./chapter-9-lottery-sheduling.md)
 * [Chapter 13 - Address Spaces](./chapter-13-address-spaces.md)
+* [Chapter 14 - Memory Api](./chapter-14-memory-api.md)
